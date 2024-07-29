@@ -1,5 +1,5 @@
-import { render, screen } from '@testing-library/react';
-import AdminNav from './components/admin/AdminNav';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import NavBar from '../components/victim/NavBar';
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
@@ -16,7 +16,7 @@ useNavigate.mockReturnValue(mockNavigate);
 
 
 test('checks Navbar Links', () => {
-    render(<AdminNav />);
+    render(<NavBar />);
     expect(screen.getByText('Crime Catchers')).toBeInTheDocument();
 
   });

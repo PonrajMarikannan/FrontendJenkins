@@ -1,5 +1,5 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import Register from './components/auth/Signup';
+import Register from '../components/auth/Signup';
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';

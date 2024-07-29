@@ -1,8 +1,8 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import AddCrim from './components/admin/AddCrim';
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
+import EditCrim from '../components/admin/EditCrim';
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
@@ -11,37 +11,42 @@ jest.mock('react-router-dom', () => ({
 
 const mock = new MockAdapter(axios);
 
-const mockNavigate = jest.fn();
+const mockNavigate = jest.fn(); 
 useNavigate.mockReturnValue(mockNavigate);
 
+afterEach(() => {
+  mock.reset(); 
+});
 
-it("renders 'Heading text' " , () =>{
-  render(<AddCrim />);
-const linkElement = screen.getByRole("form-heading");
+
+it("renders 'Heading Name' " , () =>{
+  render(<EditCrim />);
+const linkElement = screen.getByRole('head-lbl');
 expect(linkElement).toBeInTheDocument();
 })
 
-it("renders 'Case Number Field' " , () =>{
-  render(<AddCrim />);
-const linkElement = screen.getByRole("cnlbl");
+it("renders 'Id Field' " , () =>{
+  render(<EditCrim />);
+const linkElement = screen.getByRole('id-lbl');
 expect(linkElement).toBeInTheDocument();
 })
 
-it("renders 'Date of Birth Field' " , () =>{
-  render(<AddCrim />);
-const linkElement = screen.getByRole("cdlbl");
+it("renders 'Name Field' " , () =>{
+  render(<EditCrim />);
+const linkElement = screen.getByRole('name-lbl');
 expect(linkElement).toBeInTheDocument();
 })
 
-it("renders 'Case ID Field' " , () =>{
-  render(<AddCrim />);
-const linkElement = screen.getByRole("cilbl");
+it("renders 'DOB Field' " , () =>{
+  render(<EditCrim />);
+const linkElement = screen.getByRole('dob-lbl');
 expect(linkElement).toBeInTheDocument();
 })
+
+
 
 it("renders 'Button Field' " , () =>{
-  render(<AddCrim />);
-const linkElement = screen.getByRole("btnlbl");
+  render(<EditCrim />);
+const linkElement = screen.getByRole('btn-lbl');
 expect(linkElement).toBeInTheDocument();
 })
-

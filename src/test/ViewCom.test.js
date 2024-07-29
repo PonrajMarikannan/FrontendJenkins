@@ -1,19 +1,19 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import  ViewCrim from './components/admin/ViewCrim';
+import ViewCom from '../components/victim/ViewCom';
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
   useNavigate: () => jest.fn(),
 }));
 
-describe('Criminal View Component', () => {
+describe('Victim View Component', () => {
 
   test('renders for heading', () => {
     render(
       <MemoryRouter>
-        <ViewCrim />
+        <ViewCom />
       </MemoryRouter>
     );
     const HeadingElement = screen.getByRole('hlbl');
@@ -23,7 +23,7 @@ describe('Criminal View Component', () => {
   test('renders for Add Button', () => {
     render(
       <MemoryRouter>
-        <ViewCrim />
+        <ViewCom />
       </MemoryRouter>
     );
     const AddButton = screen.getByRole('addbtn');
@@ -33,7 +33,7 @@ describe('Criminal View Component', () => {
   test('renders for Overall Table', () => {
     render(
       <MemoryRouter>
-        <ViewCrim />
+        <ViewCom />
       </MemoryRouter>
     );
     const Table = screen.getByRole('tbl');
@@ -43,7 +43,7 @@ describe('Criminal View Component', () => {
   test('renders for table Head', () => {
     render(
       <MemoryRouter>
-        <ViewCrim />
+        <ViewCom />
       </MemoryRouter>
     );
     const TableHead = screen.getByRole('thead');
@@ -53,11 +53,13 @@ describe('Criminal View Component', () => {
   test('renders for Table Body', () => {
     render(
       <MemoryRouter>
-        <ViewCrim />
+        <ViewCom />
       </MemoryRouter>
     );
-    const TableBody = screen.getByRole('tblb');
+    const TableBody = screen.getByRole('tblbl');
     expect(TableBody).toBeInTheDocument();
   });
+
+
 
 });

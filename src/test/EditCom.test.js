@@ -2,7 +2,7 @@ import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
-import EditCom from './components/victim/EditCom';
+import EditCom from '../components/victim/EditCom';
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
