@@ -22,8 +22,8 @@ function ViewCrim() {
   }, []);
 
   const handleDelete = (id) => {
-    const conf = window.confirm("Do you want to delete this Criminal?");
-    if (conf) {
+    // const conf = window.confirm("Do you want to delete this Criminal?");
+    // if (conf) {
       axios
         .delete(`http://localhost:8085/criminal/${id}`)
         .then((res) => {
@@ -32,7 +32,7 @@ function ViewCrim() {
           window.location.reload();
         })
         .catch((err) => console.log(err));
-    }
+    // }
   };
 
   return (
